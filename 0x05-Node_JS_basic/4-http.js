@@ -11,3 +11,5 @@ const Port = 1245;
 app.listen(Port, 'localhost', () => {
   console.log(`Server running at http://localhost:${1245}/`);
 });
+
+module.exports = app;
