@@ -8,6 +8,6 @@ const app = http.Server((req, res) => {
 
 const Port = 1245;
 
-app.listen(Port, () => {
-  console.log(`Server listening on port ${Port}`);
+app.listen(Port, 'localhost', () => {
+  console.log(`Server running at http://localhost:${1245}/`);
 });
