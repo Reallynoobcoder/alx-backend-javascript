@@ -7,10 +7,6 @@ const app = http.Server((req, res) => {
     res.setHeader('Content-Type', 'text/plain');
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.write('This is the list of our students');
-
     readFileasync(process.argv[2])
       .then((students) => {
         res.statusCode = 200;
