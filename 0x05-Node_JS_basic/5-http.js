@@ -1,7 +1,7 @@
 const http = require('http');
 const readFileasync = require('./3-read_file_async');
 
-const app = http.Server((req, res) => {
+const app = http.createServer((req, res) => {
   if (req.url === '/') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -11,21 +11,23 @@ const app = http.Server((req, res) => {
     console.log = () => {};
 
     readFileasync(process.argv[2])
-      .then((students) => {
+      .then((studentsData) => {
         console.log = originalConsoleLog;
 
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
-        res.end(`This is the list of our students:\n${students}`);
+        res.end(studentsData);
       })
       .catch((error) => {
         console.log = originalConsoleLog;
 
         res.statusCode = 500;
+        res.setHeader('Content-Type', 'text/plain');
         res.end(error.message);
       });
   } else {
     res.statusCode = 404;
+    res.setHeader('Content-Type', 'text/plain');
     res.end('Not Found');
   }
 });
