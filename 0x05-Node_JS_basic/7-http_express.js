@@ -8,9 +8,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  countStudents('database.csv')
+  countStudents(process.argv[2])
     .then((students) => {
-      res.send(`This is the list of our students:\n${students}`);
+      res.send(`This is the list of our students\n${students}`);
     })
     .catch((error) => {
       res.status(500).send(`Error: ${error.message}`);
