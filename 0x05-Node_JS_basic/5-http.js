@@ -23,7 +23,7 @@ const app = http.createServer((req, res) => {
 
         res.statusCode = 500;
         res.setHeader('Content-Type', 'text/plain');
-        res.end(error.message);
+        res.end('Cannot load the database');
       });
   } else {
     res.statusCode = 404;
