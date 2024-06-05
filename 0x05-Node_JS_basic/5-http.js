@@ -21,9 +21,9 @@ const app = http.createServer((req, res) => {
       .catch((error) => {
         console.log = originalConsoleLog;
 
-        res.statusCode = 500;
+        res.statusCode = 404; // Adjusted status code to 404
         res.setHeader('Content-Type', 'text/plain');
-        res.end('Cannot load the database');
+        res.end('Not Found'); // Changed error message to 'Not Found'
       });
   } else {
     res.statusCode = 404;
