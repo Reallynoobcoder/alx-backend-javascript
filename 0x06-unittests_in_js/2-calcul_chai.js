@@ -6,3 +6,5 @@ function calculateNumber (type, a, b) {
     throw new Error('Invalid type');
   }
 }
+
+module.exports = calculateNumber;
